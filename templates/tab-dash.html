@@ -1,0 +1,54 @@
+<ion-view view-title="Messenger">
+
+  <ion-content class="padding" style="text-align: center;">
+      <style type="text/css">
+        .appContainer
+        {
+          float: left;
+          margin-left: 10px !important;
+          width: 30%;
+          margin-top: 35px;
+          font-size: 17px;
+        }
+        .bar-stable
+        {
+          background: #0e81f7 !important;
+        }
+        .title
+        {
+          color: white !important;
+        }
+      </style>
+
+      
+
+      <div class="list list-inset">
+        <label class="item item-input" style="width: 100%">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input class="item item-input" type="text" placeholder="Search" ng-model="search">
+        </label><!-- 
+          <button class="button icon-right ion-chevron-right button-calm" style="position: absolute;top: 0px; right: 0px; z-index: 100;" ng-click="googleSearch(search)">Search</button> -->
+
+      </div>
+
+      <div class="appContainer" ng-repeat="app in AndroidApps | orderBy :'count' : true | filter : search" ng-click="launch(app)">
+      <img ng-src="{{app.img}}" style="width: 50%">
+      <br>
+        <!-- <div class="item item-text-wrap"> -->
+        {{app.name}}
+        <!-- </div> -->
+      </div>
+
+      <p style="width: 100%; text-align: center; position: absolute; z-index: 100; color: blue;" ng-show="search" ng-click="findApp(search)">Download From Play Store</p>
+
+
+
+    <!--   <div class="card">
+        <div class="item item-text-wrap">
+          This is a basic Card which contains an item that has wrapping text.
+        </div>
+      </div> -->
+
+
+  </ion-content>
+</ion-view>
